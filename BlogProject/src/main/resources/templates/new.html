@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>My Blog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+	<form th:action="@{/save}" method="post" th:object="${posts}">
+		<label>Heading</label>
+		<input type="text" th:field="*{heading}" placeholder="heading"/> 
+		<textarea th:field="*{content}" rows="10" placeholder="Enter something"></textarea>
+		<input type="text" th:field="*{source}" placeholder="source"/>
+		<button type="submit" class="btn btn-info">Save</button>
+	</form>
+</body>
+</html>
