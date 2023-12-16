@@ -10,15 +10,23 @@
     
 </head>
 <body>
+
 	<h1>My Blog</h1>
-	<form th:action="@{/save}" method="post" th:object="${posts}">
-		<div class="container">
-		
-		<input type="text" th:field="*{heading}" placeholder="heading" class="form-control"/> 
-		<textarea th:field="*{content}" rows="10" placeholder="Enter something" class="form-control mt-2"></textarea>
-		<input type="text" th:field="*{source}" placeholder="source" class="mt-2 mb-2 form-control" /><br>
-		<button type="submit" class="btn btn-info">Save</button>
+	
+	
+	
+	<a th:href="@{/new}">Add Post</a>	<br>
+	
+	<tbody>
+	  <tr th:each="post:${posts}">
+		 <div class="container mb-5">
+		<h1><td th:text="${post.heading}">Heading</td></h1><br>
+		<h4><td th:text="${post.content}">Content</td></h4><br>
+		<td th:text="${post.source}">Source</td>
 		</div>
-	</form>
+	  </tr>
+	  
+  </tbody>
+	
 </body>
 </html>

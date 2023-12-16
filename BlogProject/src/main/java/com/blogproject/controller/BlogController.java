@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.blogproject.entities.Posts;
 import com.blogproject.service.BlogService;
-import com.student.domain.Student;
+
 
 @Controller
 public class BlogController {
@@ -22,9 +22,15 @@ public class BlogController {
 	
 	@GetMapping("/")
 	public String home(Model model) {
-		List<Posts> listStudent = service.listAll();
+		List<Posts> posts = service.listAll();
+		model.addAttribute("posts",posts);
+		System.out.print(posts);
+		return "index";
+	}
+	
+	@GetMapping("/new")
+	public String newPost(Model model) {
 		model.addAttribute("posts",new Posts());
-		System.out.printf("GET / ");
 		return "new";
 	}
 	
