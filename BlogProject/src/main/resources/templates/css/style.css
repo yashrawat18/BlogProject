@@ -3,3 +3,7 @@ body {
   background-color: rgb(211, 215, 207)!important;
 }
 
+
+p{
+	white-space: inherit;
+}
